@@ -59,19 +59,12 @@ Nesta seção, detalho os pilares que sustentam a infraestrutura da Microsoft Az
 ### 1. Alta Disponibilidade e SLA (Service Level Agreement)
 A disponibilidade é garantida através de contratos de nível de serviço (SLA). Caso a Microsoft não atinja o percentual acordado, créditos de serviço são gerados para o cliente.
 
-| SLA Percentual | Tempo de Inatividade Máximo (Anual) |
-| :--- | :--- |
-| **99%** | 3.65 dias |
-| **99.9%** | 8.77 horas |
-| **99.95%** | 4.38 horas |
-| **99.99%** | 52.60 minutos |
-
-> 📸 **/img/TabelaSLA.png**
+> ![Tabela de SLAs da Microsoft](img/TabelaSLA.png)
 
 #### 🖥️ Configuração na Prática (Máquina Virtual)
 Ao criar uma **Máquina Virtual**, o campo "Opções de disponibilidade" define o nível de resiliência do hardware. Cada escolha aqui altera o SLA e, consequentemente, o custo da solução.
 
-> 📸 **/img/Zona-Disp-VM.png**
+> ![Configuração de Zona de Disponibilidade na VM](img/Zona-Disp-VM.png)
 
 ---
 
@@ -84,7 +77,7 @@ A persistência e disponibilidade dos dados dependem da estratégia de replicaç
 * **GZRS (Geo-Zone-Redundant Storage):** Redundância de zona e geográfica combinadas.
 * **RA (Read Access):** Permite leitura na região secundária mesmo se a principal falhar.
 
-> 📸 **/img/Conta-de-Armazenamento.png**
+> ![Configuração de Redundância de Armazenamento](img/Conta-de-Armazenamento.png)
 
 ---
 

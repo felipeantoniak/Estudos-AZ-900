@@ -48,4 +48,58 @@ Na computação em nuvem, o modelo de consumo garante que a empresa:
 3.  Elimine o desperdício de recursos ociosos.
 
 ---
+
+
+## 🚀 Benefícios e Operação na Nuvem (Azure)
+
+Nesta seção, detalho os pilares que sustentam a infraestrutura da Microsoft Azure, focando em confiabilidade, SLAs e gestão de recursos.
+
+---
+
+### 1. Alta Disponibilidade e SLA (Service Level Agreement)
+A disponibilidade é garantida através de contratos de nível de serviço (SLA). Caso a Microsoft não atinja o percentual acordado, créditos de serviço são gerados para o cliente.
+
+| SLA Percentual | Tempo de Inatividade Máximo (Anual) |
+| :--- | :--- |
+| **99%** | 3.65 dias |
+| **99.9%** | 8.77 horas |
+| **99.95%** | 4.38 horas |
+| **99.99%** | 52.60 minutos |
+
+> 📸 **/img/TabelaSLA.png**
+
+#### 🖥️ Configuração na Prática (Máquina Virtual)
+Ao criar uma **Máquina Virtual**, o campo "Opções de disponibilidade" define o nível de resiliência do hardware. Cada escolha aqui altera o SLA e, consequentemente, o custo da solução.
+
+> 📸 **/img/Zona-Disp-VM.png**
+
+---
+
+### 2. Redundância de Armazenamento e Impacto no SLA
+A persistência e disponibilidade dos dados dependem da estratégia de replicação escolhida. Escrever dados em mais de um lugar diminui drasticamente o tempo de indisponibilidade.
+
+* **LRS (Locally Redundant Storage):** Replicação local.
+* **ZRS (Zone-Redundant Storage):** Replicação entre zonas.
+* **GRS (Geo-Redundant Storage):** Replicação geográfica em região secundária.
+* **GZRS (Geo-Zone-Redundant Storage):** Redundância de zona e geográfica combinadas.
+* **RA (Read Access):** Permite leitura na região secundária mesmo se a principal falhar.
+
+> 📸 **/img/Conta-de-Armazenamento.png**
+
+---
+
+### 3. Agilidade e Escalabilidade
+* **Escalabilidade:** Capacidade de ajustar recursos para atender à demanda (adicionar CPU/RAM ou instâncias).
+* **Elasticidade:** O poder de reagir a saltos repentinos de demanda de forma automática ou manual.
+* **Confiabilidade:** Graças à arquitetura descentralizada, os recursos podem estar espalhados pelo mundo.
+
+---
+
+### 4. Gestão, Previsibilidade e Segurança
+* **Previsibilidade:** Avançar com confiança em custos e desempenho através do **Azure Well-Architected Framework**.
+* **Segurança:** A Azure oferece as ferramentas (como firewalls e identidades), mas a implementação correta é de responsabilidade do cliente.
+* **Governança:** Auditorias que sinalizam recursos fora de conformidade e ajudam na mitigação de riscos.
+* **Gerenciabilidade:** Gerenciamento via **Portal, CLI ou PowerShell**, permitindo implantar recursos pré-configurados sem necessidade de intervenção manual massiva.
+
+---
 *Estudos focados na certificação Microsoft Azure (AZ-900).*

@@ -1,6 +1,6 @@
 # Dominando Modelos de Nuvem e Economia de Cloud ☁️
 
-Este repositório faz parte dos meus estudos na **DIO (Digital Innovation One)** e aborda os conceitos fundamentais de modelos de implantação de nuvem e a diferença financeira entre CapEx e OpEx.
+Este repositório faz parte dos meus estudos para **AZURE AZ-900** e aborda os conceitos fundamentais de modelos de implantação de nuvem.
 
 ---
 

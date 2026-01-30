@@ -95,4 +95,53 @@ A persistência e disponibilidade dos dados dependem da estratégia de replicaç
 * **Gerenciabilidade:** Gerenciamento via **Portal, CLI ou PowerShell**, permitindo implantar recursos pré-configurados sem necessidade de intervenção manual massiva.
 
 ---
+
+## 🛠️ Tipos de Serviços e Responsabilidade Compartilhada
+
+Nesta etapa, exploramos os modelos de serviço (IaaS, PaaS, SaaS) e como a responsabilidade pela segurança e manutenção é distribuída entre o provedor (Microsoft) e o cliente.
+
+---
+
+### 📦 Modelos de Serviço
+
+1. **IaaS (Infraestrutura como Serviço):** É o modelo mais flexível. O cliente tem controle sobre servidores, armazenamento e firewalls. É o que mais se aproxima de gerenciar um servidor físico, mas sem o hardware.
+2. **PaaS (Plataforma como Serviço):** Focado em desenvolvimento. O cliente não se preocupa com o Sistema Operacional ou hardware, focando apenas na implantação de aplicativos e gerenciamento de bancos de dados.
+3. **SaaS (Software como Serviço):** O nível mais alto. O cliente utiliza o software pronto, hospedado e gerenciado pelo provedor (Ex: Microsoft 365).
+
+---
+
+### 🤝 Modelo de Responsabilidade Compartilhada
+
+O sucesso na nuvem depende de entender que a segurança e o gerenciamento são uma via de mão dupla. Dependendo do serviço escolhido, a Microsoft assume mais ou menos responsabilidades.
+
+| Componente | IaaS | PaaS | SaaS |
+| :--- | :---: | :---: | :---: |
+| **Informações e Dados** | Cliente | Cliente | Cliente |
+| **Dispositivos (Móveis/PCs)** | Cliente | Cliente | Cliente |
+| **Contas e Identidades** | Cliente | Cliente | Cliente |
+| **Identidade e Diretório** | Cliente | Compartilhado | Compartilhado |
+| **Aplicativos** | Cliente | Compartilhado | Microsoft |
+| **Controles de Rede** | Cliente | Compartilhado | Microsoft |
+| **Sistema Operacional** | Cliente | Microsoft | Microsoft |
+| **Hosts / Rede / Datacenter Físico** | Microsoft | Microsoft | Microsoft |
+
+---
+
+### 🔍 Detalhamento das Responsabilidades
+
+#### **IaaS (Maior Controle)**
+A Microsoft cuida apenas da infraestrutura física (Datacenter, Rede e Hosts). Todo o restante, desde a instalação do **Sistema Operacional** até a proteção dos **Dados**, é responsabilidade do cliente.
+
+#### **PaaS (Foco no App)**
+O gerenciamento do SO é transferido para a Microsoft. O cliente divide a responsabilidade em áreas como **Controles de Rede** e **Identidade**, focando seus esforços em gerenciar seus dados e usuários.
+
+#### **SaaS (Menor Esforço)**
+Quase tudo é gerenciado pela Microsoft. A única responsabilidade crítica que **sempre** permanece com o cliente, independente do modelo, é a gestão de:
+* **Contas e Identidades**
+* **Dispositivos**
+* **Informações e Dados**
+
+> **💡 Dica de Ouro:** Não importa o modelo (IaaS, PaaS ou SaaS), os **Dados** e a **Identidade** são sempre responsabilidade do cliente!
+
+---
 *Estudos focados na certificação Microsoft Azure (AZ-900).*

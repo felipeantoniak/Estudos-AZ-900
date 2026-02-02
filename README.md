@@ -212,4 +212,55 @@ Para que uma VM funcione, ela precisa de uma rede. Criei uma **Rede Virtual** de
 ![Rede Virtual no Grupo de Recursos](img/Rede-Virtual.png)
 
 ---
+
+## 🖥️ Computação e Rede no Azure
+
+Neste módulo, explorei os serviços de computação sob demanda e as estruturas de rede que permitem a comunicação segura entre recursos.
+
+---
+
+### ⚡ Serviços de Computação
+
+A computação no Azure oferece diversas camadas de abstração, desde o controle total do hardware virtual até a execução de código sem servidor.
+
+#### **Máquinas Virtuais (VMs) e Disponibilidade**
+As VMs emulam o hardware físico (CPU, Memória, Rede) e oferecem controle total (IaaS). Para garantir a resiliência, utilizamos:
+* **Conjunto de Disponibilidade:** Distribui VMs em diferentes **Domínios de Falha** (racks físicos diferentes) e **Domínios de Atualização** (agrupamentos lógicos para manutenção de software). A estratégia padrão é separar em 3 domínios de falha.
+* **Conjunto de Dimensionamento (Scale Sets):** Permite o dimensionamento automático de VMs para atender à demanda e balanceamento de carga.
+
+
+
+#### **Containers e Orquestração**
+Ambientes de virtualização leves, ideais para microserviços e computação sob demanda.
+* **Instâncias de Contêiner (ACI):** Modelo PaaS para executar contêineres rapidamente sem gerenciar VMs.
+* **Serviço de Kubernetes do Azure (AKS):** Focado em **Orquestração**. Gerencia o ciclo de vida, organização e escala de clusters de contêineres.
+* **Aplicativos de Contêiner:** Serviço PaaS para implantação imediata de apps conteinerizados.
+
+#### **Serverless e Outros Serviços**
+* **Azure Functions (PaaS):** Código baseado em eventos (Serverless). Executa apenas quando chamado, eliminando custos de infraestrutura ociosa.
+* **Área de Trabalho Virtual (AVD):** Virtualização de desktops para acesso remoto seguro. Ideal para colaboradores, reduzindo riscos de segurança e hardware.
+* **Serviços de Aplicativos (App Services):** Plataforma gerenciada (PaaS) para hospedar Web Apps e APIs em linguagens como .NET, Java, Python e Node.js.
+
+---
+
+### 🌐 Serviços de Rede e Conectividade
+
+A infraestrutura de rede é o que permite a comunicação entre os recursos e o mundo externo.
+
+* **Rede Virtual (VNet):** Permite a comunicação interna. **Importante:** Duas VNets não se comunicam por padrão; é necessário configurar o **Emparelhamento (Peering)**.
+* **Gateway de VPN:** Envia tráfego criptografado entre a VNet e a rede local via internet pública.
+* **ExpressRoute:** Conexão privada e dedicada (cabo físico direto) entre a empresa e a Microsoft, sem passar pela internet pública.
+* **DNS do Azure:** Serviço de hospedagem de domínios que utiliza a rede global Anycast para garantir segurança e monitoramento via RBAC.
+
+---
+
+### 🧪 Laboratório: Configuração de Máquina Virtual
+
+Neste laboratório, o foco foi a criação de uma VM com boas práticas de gestão de custos.
+
+**Ponto Chave:** Configurei a VM para que, ao ser excluída, os recursos associados (**Discos e Placas de Rede**) sejam removidos automaticamente. Isso evita "recursos órfãos" que continuariam gerando cobranças indevidas na assinatura.
+
+> ![Finalização da Criação de uma VM](img/Concluindo-Create-VM.png)
+
+---
 *Estudos focados na certificação Microsoft Azure (AZ-900).*

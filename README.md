@@ -144,4 +144,72 @@ Quase tudo é gerenciado pela Microsoft. A única responsabilidade crítica que 
 > **💡 Dica de Ouro:** Não importa o modelo (IaaS, PaaS ou SaaS), os **Dados** e a **Identidade** são sempre responsabilidade do cliente!
 
 ---
+
+# 🏛️ Arquitetura e Organização do Azure
+
+Nesta seção, abordo os componentes estruturais da Microsoft Azure, desde a infraestrutura global até a organização lógica de recursos e assinaturas.
+
+---
+
+## 🌎 Infraestrutura Global
+
+### Regiões e Zonas de Disponibilidade
+* **Regiões:** Conjunto de datacenters implantados em um perímetro definido por latência. Atualmente, a Azure conta com mais de 60 regiões em 140 países.
+* **Custos:** O preço dos serviços varia conforme a região escolhida devido a impostos e infraestrutura local.
+* **Zonas de Disponibilidade:** Datacenters fisicamente separados dentro de uma região (geralmente 3). Se um falha, o outro assume, garantindo **Alta Disponibilidade**.
+* **Backbone Microsoft:** Todos os datacenters são conectados por uma rede de fibra ótica própria e privada da Microsoft.
+
+### Pares de Regiões (Region Pairs)
+Cada região possui um par geográfico (geralmente a 500km de distância). 
+* **Replicação:** Permite a replicação automática de dados para recuperação em caso de desastres em escala regional.
+* **Recuperação:** Em caso de interrupção global, uma região do par é priorizada para restabelecimento rápido.
+
+### Regiões Soberanas
+Atendem requisitos específicos de conformidade e legalidade (como a LGPD no Brasil):
+* **Azure Government (EUA):** Instância isolada para agências governamentais dos EUA, acessada apenas por pessoal autorizado.
+* **Azure China:** Operada pela 21Vianet, garante que todos os dados permaneçam dentro do território chinês conforme a legislação local.
+
+> 🔗 **Dica:** Explore o mapa interativo em [Azure Globe](https://datacenters.microsoft.com/globe/explore/) para visualizar os pares de datacenters.
+
+---
+
+## 🗄️ Organização de Recursos
+
+A Azure utiliza uma hierarquia para gerenciar custos e acessos:
+
+1. **Grupos de Gerenciamento:** Gerenciam múltiplas assinaturas, aplicando políticas e conformidades que são herdadas.
+2. **Assinaturas:** Unidade de faturamento e limites de acesso. Uma conta pode ter várias assinaturas (ex: uma para RH, outra para TI).
+3. **Grupos de Recursos:** Containers lógicos para agrupar serviços de uma mesma solução (ex: Web + BD).
+    * **Nota:** Recursos podem estar em regiões diferentes do seu grupo, mas pertencem a apenas um grupo por vez. Não é possível renomear um Grupo de Recursos após criado.
+4. **Recursos:** As instâncias individuais (VMs, Storage, Redes).
+
+---
+
+## 🧪 Laboratório: Criando um Grupo de Recursos e Rede Virtual
+
+Abaixo, os passos realizados para a criação e gestão de recursos no portal.
+
+### 1. Criando o Grupo de Recursos (RG)
+No painel lateral, acessei **Grupo de Recursos** e configurei os seguintes campos:
+* **Assinatura:** Definição de qual conta será faturada.
+* **Nome:** Identificação sugestiva do projeto.
+* **Região:** Central Canada.
+* **Tags (Marcações):** Utilizadas para organizar centros de custo e identificação de projetos (opcional, mas recomendado).
+
+![Criação de Grupo de Recursos](img/Sobr-Pagina-1.png)
+
+### 2. Ferramentas de Gerenciamento Interno
+Dentro do grupo criado, explorei as seguintes abas:
+* **Log de Atividades:** Auditoria completa de quem criou ou alterou algo.
+* **Controle de Acesso (IAM):** Definição de níveis de permissão (seguindo o princípio do menor privilégio).
+* **Visualizador de Recursos:** Exibição de um organograma visual das conexões entre os recursos.
+* **Eventos:** Automação de tarefas e agendamentos.
+
+### 3. Implementando uma Rede Virtual (VNet)
+Para que uma VM funcione, ela precisa de uma rede. Criei uma **Rede Virtual** dentro do grupo de recursos anterior.
+* **Interessante:** O Grupo de Recursos está no **Canada**, mas criei a Rede Virtual no **Brazil South**, demonstrando a flexibilidade da Azure em manter recursos de diferentes regiões sob o mesmo container lógico.
+
+![Rede Virtual no Grupo de Recursos](img/Rede-Virtual.png)
+
+---
 *Estudos focados na certificação Microsoft Azure (AZ-900).*

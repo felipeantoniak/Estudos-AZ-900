@@ -261,6 +261,60 @@ Neste laboratório, o foco foi a criação de uma VM com boas práticas de gest�
 **Ponto Chave:** Configurei a VM para que, ao ser excluída, os recursos associados (**Discos e Placas de Rede**) sejam removidos automaticamente. Isso evita "recursos órfãos" que continuariam gerando cobranças indevidas na assinatura.
 
 > ![Finalização da Criação de uma VM](img/Concluindo-Create-VM.png)
+---
+
+## 💾 Armazenamento no Azure
+
+Nesta seção, abordo as soluções de armazenamento, estratégias de redundância e as camadas de acesso para otimização de custos e performance.
+
+---
+
+### 🗄️ Contas de Armazenamento (Storage Accounts)
+Uma conta de armazenamento é um container que agrupa os serviços de dados da Azure.
+* **Nomenclatura:** Deve ser globalmente exclusiva, conter entre 3 e 24 caracteres e utilizar apenas letras minúsculas e números.
+* **Versatilidade:** Pode hospedar diversos tipos de dados, desde arquivos binários até mensagens em fila.
+
+---
+
+### 🔄 Estratégias de Redundância
+A redundância define como seus dados são replicados para garantir a durabilidade (medida em "noves").
+
+| Modelo | Descrição | Durabilidade |
+| :--- | :--- | :--- |
+| **LRS** (Local) | Replicado 3x em um único datacenter na região primária. | 11 Noves (99.999999999%) |
+| **ZRS** (Zona) | Replicado em 3 zonas de disponibilidade na região primária. | 12 Noves |
+| **GRS** (Geográfica) | Replicação LRS na região primária + cópia em um datacenter na região secundária. | 16 Noves |
+| **GZRS** (Geo-Zona) | Replicação ZRS na região primária + cópia em um datacenter na região secundária. | 16 Noves |
+
+
+
+---
+
+### 📂 Tipos de Armazenamento
+* **Blobs:** Otimizado para quantidades massivas de dados não estruturados (imagens, vídeos, backups).
+* **Discos:** Armazenamento persistente para Máquinas Virtuais.
+* **Arquivos (Files):** Compartilhamento de arquivos em rede via protocolo SMB.
+* **Filas (Queues):** Armazenamento de mensagens (até 64KB cada) para comunicação entre componentes de aplicações.
+* **Tabelas (Tables):** Armazenamento NoSQL de chave/atributo para dados estruturados não relacionais.
+
+---
+
+### 🌐 Pontos de Extremidade (Endpoints)
+O acesso aos serviços é feito via URLs padronizadas:
+* **Blobs:** `https://<nome>.blob.core.windows.net`
+* **Arquivos:** `https://<nome>.file.core.windows.net`
+* **Filas:** `https://<nome>.queue.core.windows.net`
+* **Tabelas:** `https://<nome>.table.core.windows.net`
+
+---
+
+### ❄️ Camadas de Acesso (Access Tiers)
+As camadas permitem otimizar o custo com base na frequência de acesso aos dados:
+
+1. **Frequente (Hot):** Acesso imediato e constante.
+2. **Esporádico (Cool):** Acesso infrequente; armazenamento mínimo de 30 dias.
+3. **Frio (Cold):** Acesso infrequente; armazenamento mínimo de 90 dias.
+4. **Arquivo Morto (Archive):** Dados raramente acessados; armazenamento mínimo de 180 dias. Possui a maior latência de recuperação, mas o menor custo de armazenamento.
 
 ---
 *Estudos focados na certificação Microsoft Azure (AZ-900).*

@@ -371,6 +371,42 @@ Dentro do Portal Azure, esta área permite:
 * Visualizar um **Overview** dos gastos atuais.
 * Criar **Alertas de Custo** para notificar quando o orçamento atingir um limite definido.
 * Gerar relatórios de previsibilidade para os próximos meses.
+---
+
+## ⚖️ Governança e Conformidade
+
+Neste módulo, explorei as ferramentas que garantem que a infraestrutura do Azure permaneça segura, dentro dos padrões da organização e em conformidade com regulamentações globais.
+
+---
+
+### 📜 Azure Policy
+O Azure Policy é a ferramenta principal para impor padrões organizacionais e avaliar a conformidade em escala.
+* **Estados de Conformidade:** * **Compliant:** Recurso dentro dos padrões.
+    * **Non-Compliance:** Recursos que estão fora do padrão (ex: um recurso criado fora da região Brasil quando a política exige apenas `Brazil South`).
+* **Remediation (Remediação):** Permite corrigir automaticamente recursos existentes que não estão em conformidade, garantindo que o ambiente antigo se ajuste às novas regras.
+* **Aplicação:** Pode ser configurada como "Ativa" (impede a criação) ou apenas para auditoria (avisa que está errado, mas não bloqueia).
+
+---
+
+### 🔒 Bloqueio de Recursos (Resource Locks)
+Utilizado para proteger recursos críticos contra exclusões ou modificações acidentais/propositais.
+* **Níveis de Bloqueio:** Pode ser aplicado na Assinatura, no Grupo de Recursos ou em Recursos individuais.
+* **Herança:** Os bloqueios são herdáveis. Se você bloquear um Grupo de Recursos, todos os recursos dentro dele herdarão a restrição automaticamente.
+* **Importante:** Deve ser usado de forma ponderada, pois pode impedir processos de manutenção automatizados e afetar custos se impedir a exclusão de recursos temporários.
+* 
+---
+
+### 🏢 Governança de Dados e Confiança
+
+#### **Microsoft Purview**
+Uma solução de governança de dados unificada que ajuda a gerenciar dados locais, multinuvem e SaaS.
+* **Descoberta Automatizada:** Localiza dados em toda a organização.
+* **Classificação:** Identifica dados confidenciais (ex: CPFs, cartões).
+* **Linhagem de Dados:** Rastreia de onde o dado veio e para onde ele vai, ajudando na prevenção de vazamentos.
+
+#### **Portal de Confiança do Serviço (Service Trust Portal)**
+O local central onde a Microsoft publica detalhes sobre como seus serviços atendem às conformidades de segurança, privacidade e regulamentações específicas (Bancário, Saúde, Governamental). É a fonte oficial para consultas sobre protocolos e leis atendidas pela Azure.
+
 
 ---
 *Estudos focados na certificação Microsoft Azure (AZ-900).*

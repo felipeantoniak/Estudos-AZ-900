@@ -317,4 +317,60 @@ As camadas permitem otimizar o custo com base na frequência de acesso aos dados
 4. **Arquivo Morto (Archive):** Dados raramente acessados; armazenamento mínimo de 180 dias. Possui a maior latência de recuperação, mas o menor custo de armazenamento.
 
 ---
+
+## 💰 Gerenciamento de Custos e Faturamento
+
+Neste módulo, explorei como a Azure estrutura sua cobrança e quais ferramentas estão disponíveis para prever, monitorar e reduzir gastos.
+
+---
+
+### 📉 Fatores que Afetam os Custos
+O custo de um serviço na Azure não é fixo e depende de variáveis críticas:
+* **Tipo de Recurso:** Os custos são específicos para cada serviço; o Azure rastreia o uso através de medidores associados a cada recurso.
+* **Consumo:** Baseado no modelo "pago conforme o uso" (Pay-as-you-go).
+* **Manutenção:** O monitoramento constante ajuda a identificar recursos ociosos que podem ser desligados para evitar cobranças desnecessárias.
+* **Geografia:** O mesmo recurso pode ter preços diferentes dependendo da região escolhida.
+* **Tráfego de Rede:** Embora a entrada de dados (Ingress) costume ser gratuita, a saída de dados (Egress) entre zonas ou regiões gera custos.
+
+---
+
+### 🛠️ Ferramentas de Estimativa
+
+#### **Calculadora de Preços Azure**
+Fornece uma **estimativa** (não o valor real final) dos custos mensais. É essencial para montar relatórios para clientes ou diretoria.
+* **Variáveis de Cálculo:** Região, Camada de serviço, Opções de Suporte e Programas de Ofertas.
+
+#### **Calculadora de TCO (Custo Total de Propriedade)**
+Compara os custos de manter uma infraestrutura local (On-premises) versus a migração para a nuvem Azure. Ajuda a visualizar a economia em hardware, rede e eletricidade.
+
+
+
+---
+
+### 🏷️ Organização e Governança com Tags
+As **Tags** (Marcas) são pares de nome/valor que fornecem metadados aos recursos.
+* **Utilidade:** Organização lógica e reunião de informações para faturamento por departamento ou projeto.
+* **Importante:** Elas **não são obrigatórias** e **não são herdáveis** por recursos dentro de um grupo.
+
+---
+
+### 🧪 Análise Prática: Otimização de Custos (VM Windows)
+Realizei simulações na Calculadora de Preços para entender como as escolhas de licenciamento e reserva impactam o valor final:
+
+| Cenário de Teste | Valor Estimado (USD) | Economia Observada |
+| :--- | :--- | :--- |
+| **1. Padrão Windows** | $ 137,24 | Valor Base |
+| **2. Com Benefício Híbrido** | $ 70,08 | Uso de licença própria |
+| **3. Reserva (3 anos) + Benefício Híbrido** | $ 32,94 | **Máxima economia** |
+| **4. Uso Parcial (312h/mês)** | $ 29,95 | Desligamento em horários ociosos |
+
+---
+
+### 📊 Gerenciamento de Custos + Cobrança
+Dentro do Portal Azure, esta área permite:
+* Visualizar um **Overview** dos gastos atuais.
+* Criar **Alertas de Custo** para notificar quando o orçamento atingir um limite definido.
+* Gerar relatórios de previsibilidade para os próximos meses.
+
+---
 *Estudos focados na certificação Microsoft Azure (AZ-900).*

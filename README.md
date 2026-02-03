@@ -448,6 +448,42 @@ São arquivos declarativos que permitem implantar infraestrutura sem programaç�
 * **Orquestração e Validação:** O ARM gerencia a ordem das criações e valida o código antes de executar.
 
 > **Bicep:** É a evolução dos modelos ARM. Uma linguagem nativa da Azure, mais simples e legível, criada para facilitar a automação.
+---
+
+## 🔍 Monitoramento e Integridade
+
+Neste último tópico, abordo as ferramentas essenciais para garantir que o ambiente Azure esteja otimizado, seguro e operando sem interrupções.
 
 ---
+
+### 💡 Azure Advisor (Assistente do Azure)
+O Azure Advisor é o seu consultor personalizado. Ele analisa a telemetria dos recursos e fornece recomendações baseadas nas melhores práticas do **Azure Well-Architected Framework**.
+
+As recomendações são divididas em 5 pilares críticos:
+1. **Confiabilidade:** Para garantir a continuidade do negócio.
+2. **Segurança:** Identificação de vulnerabilidades.
+3. **Desempenho:** Melhoria na velocidade das aplicações.
+4. **Custo:** Sugestões para eliminar gastos desnecessários.
+5. **Excelência Operacional:** Melhoria nos processos de implantação e gerenciamento.
+
+---
+
+### 🏥 Monitorando a Saúde do Azure
+A Microsoft fornece três níveis de visibilidade para entender interrupções ou degradações:
+
+* **Azure Status:** Uma visão global e pública da integridade de todos os serviços em todas as regiões.
+* **Service Health (Integridade do Serviço):** Uma visão personalizada dos serviços e regiões que você utiliza. Avisa sobre manutenções planejadas ou incidentes que impactam sua assinatura (ex: mudança física de hardware no datacenter).
+* **Resource Health:** Fornece detalhes sobre a integridade de um **recurso individual** (ex: uma VM específica que parou de responder).
+
+
+
+---
+
+### 📈 Azure Monitor
+O **Azure Monitor** é a solução completa para coleta e análise de telemetria.
+* **Abrangência:** Funciona tanto para recursos na nuvem quanto em ambientes locais.
+* **Ação:** Maximiza a disponibilidade ao coletar dados, analisar tendências e permitir a criação de alertas automáticos com base no desempenho das aplicações.
+
+---
+
 *Estudos focados na certificação Microsoft Azure (AZ-900).*
